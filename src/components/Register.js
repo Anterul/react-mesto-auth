@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Register(props) {
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   function handlePasswordChange(e) {
     setPassword(e.target.value);
@@ -18,12 +18,12 @@ function Register(props) {
     props.onSignUp(password, email);
   }
 
-  return(
+  return (
     <div className="auth">
       <h2 className="auth__title">Регистрация</h2>
       <form className="auth__form" onSubmit={handleSubmit}>
         <input
-          className='auth__input'
+          className="auth__input"
           value={email}
           onChange={handleEmailChange}
           placeholder="Email"
@@ -33,7 +33,7 @@ function Register(props) {
           required
         />
         <input
-          className='auth__input'
+          className="auth__input"
           value={password}
           onChange={handlePasswordChange}
           placeholder="Пароль"
@@ -42,9 +42,13 @@ function Register(props) {
           id="password"
           required
         />
-        <button className='auth__submit-button' type="submit" onSubmit={handleSubmit}>Зарегистрироваться</button>
+        <button className="auth__submit-button" type="submit">
+          Зарегистрироваться
+        </button>
       </form>
-      <NavLink className="auth__link" to='/sign-in'>Уже зарегистрированы? Войти</NavLink>
+      <NavLink className="auth__link" to="/sign-in">
+        Уже зарегистрированы? Войти
+      </NavLink>
     </div>
   );
 }

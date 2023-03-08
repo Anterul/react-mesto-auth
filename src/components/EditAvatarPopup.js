@@ -1,18 +1,18 @@
-import { useRef, useEffect } from 'react';
-import PopupWithForm from './PopupWithForm';
+import { useRef, useEffect } from "react";
+import PopupWithForm from "./PopupWithForm";
 
 function EditAvatarPopup(props) {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current.value = '';
+    inputRef.current.value = "";
   }, [props.isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
-  
+
     props.onUpdateAvatar({
-      avatar: inputRef.current.value
+      avatar: inputRef.current.value,
     });
   }
 
@@ -24,7 +24,8 @@ function EditAvatarPopup(props) {
       title="Обновить аватар"
       onSubmit={handleSubmit}
       buttonText={props.buttonText}
-    > 
+      onClick={props.onClick}
+    >
       <input
         ref={inputRef}
         className="popup__input"

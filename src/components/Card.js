@@ -1,14 +1,13 @@
-import { useContext } from 'react';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { useContext } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Card(props) {
-
   const currentUser = useContext(CurrentUserContext);
   const isOwn = props.card.owner._id === currentUser._id;
-  const isLiked = props.card.likes.some(i => i._id === currentUser._id);
-  const cardLikeButtonClassName = ( 
-    `card__like-button ${isLiked && 'card__like-button_active'}` 
-  );
+  const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
+  const cardLikeButtonClassName = `card__like-button ${
+    isLiked && "card__like-button_active"
+  }`;
 
   function handleCardClick() {
     props.onCardClick(props.card);
@@ -33,19 +32,19 @@ function Card(props) {
       />
       <div className="card__info">
         <h2 className="card__title">{props.card.name}</h2>
-        {isOwn && <button
-          className="card__delete-button"
-          onClick={handleDeleteClick}
-          type="button"
-        >
-        </button>}
+        {isOwn && (
+          <button
+            className="card__delete-button"
+            onClick={handleDeleteClick}
+            type="button"
+          ></button>
+        )}
         <div className="card__like-area">
           <button
             className={cardLikeButtonClassName}
             onClick={handleLikeCard}
             type="button"
-          >
-          </button>
+          ></button>
           <span className="card__like-counter">{props.card.likes.length}</span>
         </div>
       </div>

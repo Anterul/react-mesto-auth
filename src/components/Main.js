@@ -1,7 +1,6 @@
-import { useContext } from 'react';
-import Card from './Card';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
-
+import { useContext } from "react";
+import Card from "./Card";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main(props) {
   const currentUser = useContext(CurrentUserContext);
@@ -16,10 +15,9 @@ function Main(props) {
           />
           <button
             className="profile__update-button"
-            onClick={props.onEditAvatar} 
+            onClick={props.onEditAvatar}
             type="button"
-          >
-          </button>
+          ></button>
         </div>
         <div className="profile__info">
           <h1 className="profile__title">{currentUser.userName}</h1>
@@ -27,16 +25,14 @@ function Main(props) {
             className="profile__edit-button"
             onClick={props.onEditProfile}
             type="button"
-            >
-            </button>
+          ></button>
           <p className="profile__subtitle">{currentUser.userDescription}</p>
         </div>
         <button
           className="profile__add-button"
           onClick={props.onAddPlace}
           type="button"
-          >
-          </button>
+        ></button>
       </section>
       <section className="cards">
         {props.cards.map((card) => (

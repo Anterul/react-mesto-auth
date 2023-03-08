@@ -1,4 +1,4 @@
-import PopupWithForm from './PopupWithForm';
+import PopupWithForm from "./PopupWithForm";
 
 function DeleteCardPopup(props) {
   return (
@@ -9,8 +9,8 @@ function DeleteCardPopup(props) {
       title="Вы уверены ?"
       onSubmit={props.onSubmit}
       buttonText="Да"
-    >
-    </PopupWithForm>
+      onClick={props.onClick}
+    />
   );
 }
 

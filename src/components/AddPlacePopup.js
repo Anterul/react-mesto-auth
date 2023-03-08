@@ -1,22 +1,21 @@
-import { useEffect, useState }from 'react';
-import PopupWithForm from './PopupWithForm';
+import { useEffect, useState } from "react";
+import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup(props) {
-  
-  const [cardName, setCardName] = useState('');
-  const [cardLink, setCardLink] = useState('');
+  const [cardName, setCardName] = useState("");
+  const [cardLink, setCardLink] = useState("");
 
   useEffect(() => {
-    setCardName('');
-    setCardLink('');
-  }, [props.isOpen])
+    setCardName("");
+    setCardLink("");
+  }, [props.isOpen]);
 
   function handleCardNameChange(e) {
     setCardName(e.target.value);
   }
 
   function handleCardLinkChange(e) {
-    setCardLink(e.target.value)
+    setCardLink(e.target.value);
   }
 
   function handleSubmit(e) {
@@ -24,8 +23,8 @@ function AddPlacePopup(props) {
 
     props.onAddPlace({
       name: cardName,
-      link: cardLink
-    })
+      link: cardLink,
+    });
   }
 
   return (
@@ -36,6 +35,7 @@ function AddPlacePopup(props) {
       title="Новое место"
       onSubmit={handleSubmit}
       buttonText={props.buttonText}
+      onClick={props.onClick}
     >
       <input
         className="popup__input"
